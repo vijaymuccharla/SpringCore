@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="crs" class="com.vj.beans.Course" c:courseId="345" c:courseName="Angular" c:courseFee="3000"/> 
+	
+	<bean id="dob" class="java.util.Date" p:date="27" p:month="08" p:year="95"/>
+	
+	<bean id="stdreg" class="com.vj.beans.Student" p:stdId="1244" p:stdname="Vijay" p:stdAdrrs="Hyd" p:course-ref="crs" p:dob-ref="dob" />
+</beans>
