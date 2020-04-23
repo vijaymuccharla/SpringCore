@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="android" class="com.vj.beans.Smartphone" abstract="true">
+		<constructor-arg name="operatingSystem" value="Android" />
+		<constructor-arg name="color" value="Red" />
+		<constructor-arg name="processor" value="snapdragon" />
+		<constructor-arg name="storageCapacity" value="128GB" />
+		<constructor-arg name="memory" value="8GB" />
+		<constructor-arg name="cameras" value="3" />
+	</bean>
+
+	<bean id="ios" class="com.vj.beans.Smartphone" abstract="true">
+		<constructor-arg name="operatingSystem" value="ios" />
+		<constructor-arg name="color" value="Black" />
+		<constructor-arg name="processor" value="A10 Fusion" />
+		<constructor-arg name="storageCapacity" value="128GB" />
+		<constructor-arg name="memory" value="8GB" />
+		<constructor-arg name="cameras" value="3" />
+	</bean>
+
+
+	<bean id="myPhone" class="com.vj.beans.Smartphone"
+		parent="android">
+		
+<!-- 		these values will override Abstract Bean Properties -->
+		<constructor-arg name="manufacturer" value="OnePlus" />
+		<constructor-arg name="model" value="8" />
+		<constructor-arg name="color" value="Black" />					
+		<constructor-arg name="cameras" value="3" />
+
+	</bean>
+
+	
+	<bean id="herPhone" class="com.vj.beans.Smartphone"
+		parent="ios">
+<!-- 		these values will override Abstract Bean Properties -->
+		<constructor-arg name="manufacturer" value="Apple" />
+		<constructor-arg name="model" value="11Pro" />
+		<constructor-arg name="color" value="Yellow" />
+		<constructor-arg name="cameras" value="3" />
+
+
+	</bean>
+	
+
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-merge="true" xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="commonSubjs" class="com.vj.beans.EngineeringSubjects"
+	 abstract="true" >
+		<property name="subjects">
+			<list>
+				<value>EDiag</value>
+				<value>CDS</value>
+				<value>M1</value>
+				<value>M2</value>
+			</list>
+		</property>
+	</bean>
+
+
+
+	<bean id="enggSubjs" class="com.vj.beans.EngineeringSubjects" parent="commonSubjs" >
+
+		<property name="subjects" >
+		<list merge="true">
+		<value>Chemistry</value>
+		<value>Physics</value>
+		</list>
+		
+		</property>
+
+	</bean>
+
+</beans>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="android" class="com.cj.beans.Smartphone" abstract="true">
+
+		<property name="operatingSystem" value="Android" />
+		<property name="processor" value="snapdragon" />
+		<property name="storageCapacity" value="128GB" />
+		<property name="memory" value="8GB" />
+		<property name="cameras" value="3" />
+	
+	</bean>
+
+	<bean id="ios" class="com.cj.beans.Smartphone" abstract="true">
+
+		<property name="operatingSystem" value="ios" />
+		<property name="processor" value="A10 Fusion" />
+		<property name="storageCapacity" value="128GB" />
+		<property name="memory" value="8GB" />
+		<property name="cameras" value="3" />
+
+	</bean>
+
+
+	<bean id="myPhone" class="com.cj.beans.Smartphone"
+		parent="android">
+		
+<!-- 		these values will override Abstract Bean Properties -->
+		<property name="manufacturer" value="OnePlus" />
+		<property name="color" value="Black" />					
+		<property name="model" value="8" />
+		<property name="cameras" value="3" />
+
+	</bean>
+
+	
+	<bean id="herPhone" class="com.cj.beans.Smartphone"
+		parent="ios">
+
+<!-- 		these values will override Abstract Bean Properties -->
+		<property name="manufacturer" value="Apple" />
+		<property name="color" value="Yellow" />
+		<property name="model" value="11Pro" />
+		<property name="cameras" value="3" />
+
+	</bean>
+	
+
+</beans>

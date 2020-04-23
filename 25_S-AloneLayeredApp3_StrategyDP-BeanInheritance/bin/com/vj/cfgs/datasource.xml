@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+	<bean id="dmds"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="com.mysql.cj.jdbc.Driver" />
+<!-- 		<property name="url"
+			value="jdbc:mysql://localhost:3306/hibtest" /> -->
+		<property name="username" value="root" />
+		<property name="password" value="root" />
+	</bean>
+
+<!-- Alternate to DriverManagerDataSource - Bean Inheritance-->
+	<bean id="scds" class="org.springframework.jdbc.datasource.SingleConnectionDataSource"
+		parent="dmds"/>
+
+	<!-- 	Real Time Bean Inheritance -->
+	<bean id="hikDs" class="com.zaxxer.hikari.HikariDataSource" parent="dmds">
+	<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/hibtest"/>
+	<property name="maximumPoolSize" value="10"/>
+	<property name="minimumIdle"  value="10"/>
+	</bean>
+
+	
+</beans>
