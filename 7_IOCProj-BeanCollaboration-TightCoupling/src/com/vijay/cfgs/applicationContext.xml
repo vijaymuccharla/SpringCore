@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- 	cnfg dependent bean-->
+	<bean id="crdtdc" class="com.vijay.beans.DTDC"/>
+	
+<!-- 	cnfg Target bean -->
+	<bean id="fpkt" class="com.vijay.beans.Flipkart">
+	<property name="dtdc" ref="crdtdc"></property>
+	</bean>
+
+</beans>

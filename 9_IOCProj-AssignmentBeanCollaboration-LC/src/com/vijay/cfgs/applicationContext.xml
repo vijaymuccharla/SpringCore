@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+<!-- 	configure dependents -->
+<!-- 	courier dependents-->
+
+	<bean id="crDtdc" class="com.vijay.beans.DTDC"/>
+	<bean id="crBdart" class="com.vijay.beans.Bluedart"/>
+	
+<!-- 	PaymentGateway dpnds-->
+	
+	<bean id="pyGpay" class="com.vijay.beans.Gpay"/>
+	<bean id="pyPaytm" class="com.vijay.beans.Paytm"/>
+	<bean id="pyBcoin" class="com.vijay.beans.Bitcoin"/>
+
+<!-- 	configure target and constructor injection with appropriate courier and payment gateway-->
+
+<bean id="myntra" class="com.vijay.beans.Myntra">
+<constructor-arg name="courier" ref="crBdart"></constructor-arg>
+<constructor-arg name="pg" ref="pyGpay"></constructor-arg>
+
+</bean>
+
+</beans>
