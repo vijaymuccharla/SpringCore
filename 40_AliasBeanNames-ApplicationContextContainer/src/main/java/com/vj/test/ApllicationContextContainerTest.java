@@ -6,7 +6,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.vj.bean.Details;
 
-public class TestNullInjection {
+public class ApllicationContextContainerTest {
 
 	public static void main(String[] args) {
 		
@@ -15,8 +15,8 @@ public class TestNullInjection {
 //		create IOC of type "AC"
 		
 //		ctxt=new FileSystemXmlApplicationContext("src/main/java/com/vj/cfgs/applicationContext.xml");
-//		ctxt=new ClassPathXmlApplicationContext("com/vj/cfgs/applicationContext.xml");
-		ctxt=new ClassPathXmlApplicationContext("applicationContext.xml");	//class path added to BuildPath com/vj/cfgs
+//		ctxt=new ClassPathXmlApplicationContext("applicationContext.xml");	// if class path added to BuildPath com/vj/cfgs
+		ctxt=new ClassPathXmlApplicationContext("com/vj/cfgs/applicationContext.xml");
 		
 		Details d1=ctxt.getBean("info1", Details.class);
 		System.out.println(d1);
