@@ -12,7 +12,7 @@ public class Course {
 		this.courseName = courseName;
 		this.courseFee = courseFee;
 	}
-
+//toString
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseFee=" + courseFee + "]";
