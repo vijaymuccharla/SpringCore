@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+  <!-- DataSource Cfg -->
+  <bean id="hkDs"  class="com.zaxxer.hikari.HikariDataSource">
+     <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+     <property name="jdbcUrl" value="jdbc:mysql:///hibtest"/>
+     <property name="username" value="root"/>
+     <property name="password" value="root"/>
+     <property name="maximumPoolSize" value="5"/>
+     <property name="idleTimeout" value="500"/>
+     <property name="minimumIdle" value="5"/>
+     
+  </bean>
+  
+  <!-- DAO class cfg -->
+  <bean id="empDAO"  class="com.vj.dao.EmployeeDAOImpl">
+     <constructor-arg ref="hkDs"/>
+    
+  </bean>
+  
+  <!-- service class cfg -->
+  <bean id="empService"  class="com.vj.service.EmployeeMgmtServiceImpl">
+      <constructor-arg  ref="empDAO"/>
+      <constructor-arg  value="parent"/>
+  </bean>
+  
+
+</beans>
