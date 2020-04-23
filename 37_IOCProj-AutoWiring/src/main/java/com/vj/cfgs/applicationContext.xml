@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="constructor"   xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+  <!-- dependent beans cfg -->
+   <bean id="tp"  class="com.vj.beans.TourPlan"     >
+       <property name="places">
+           <list>
+              <value>Ooty</value>
+              <value>K.canal</value>
+              <value>MunnarHills</value>
+           </list>
+       </property>
+   </bean>
+   
+    <bean id="tp1"  class="com.vj.beans.TourPlan" primary="true" >
+       <property name="places">
+           <list>
+              <value>Goa</value>
+              <value>Manglore</value>
+              <value>pondichery</value>
+           </list>
+       </property>
+   </bean> 
+   
+   <!-- target bean cfg -->
+    <bean id="agent"  class="com.vj.beans.TravelAgent"  autowire="constructor">
+      <property name="tp" ref="tp"/>
+    </bean>
+   
+   
+    
+    
+       
+    
+
+</beans>
