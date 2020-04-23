@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="dob" class="java.util.Date" scope="prototype">
+		<property name="year" value="85" />
+		<property name="month" value="08" />
+		<property name="date" value="13" />
+	</bean>
+
+
+	<bean id="dom" class="java.util.Date" scope="prototype">
+		<property name="year" value="95" />
+		<property name="month" value="09" />
+		<property name="date" value="23" />
+	</bean>
+
+
+	<bean id="doj" class="java.util.Date">
+		<property name="year" value="80" />
+		<property name="month" value="12" />
+		<property name="date" value="25" />
+	</bean>
+
+
+	<bean id="info1" class="com.vj.bean.Details" scope="singleton">
+		<constructor-arg value="1111111" />
+		<constructor-arg value="25" />
+		<constructor-arg value="Malya" />
+		<constructor-arg ref="dob" />
+		<constructor-arg ref="dom" />
+		<constructor-arg ref="doj" />
+	</bean>
+
+	<bean id="info2" class="com.vj.bean.Details" lazy-init="true">		<!-- 	lazy-init="true"  this will stop pre-initialisation-->
+		<constructor-arg value="1111111" />
+		<constructor-arg value="25" />
+		<constructor-arg value="Malya" />
+		<constructor-arg ref="dob" />
+		<constructor-arg> <null/>  </constructor-arg>			<!-- null injection -->
+		<constructor-arg ref="doj" />
+	</bean>
+
+
+</beans>
