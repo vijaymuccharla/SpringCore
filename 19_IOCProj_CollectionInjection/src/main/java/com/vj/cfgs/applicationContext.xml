@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- bean1 -->
+	<bean id="joinDate" class="java.util.Date" />
+
+	<!-- bean2 -->
+	<bean id="dobDate" class="java.util.Date">
+		<property name="year" value="80" />
+		<property name="month" value="13" />
+		<property name="date" value="08" />
+
+		<!-- Array values bean3 -->
+	</bean>
+	<bean id="array" class="com.vj.beans.ArrayOfValues">
+
+		<property name="marks">
+			<array>
+				<value>60</value>
+				<value>50</value>
+				<value>40</value>
+				<value>80</value>
+				<value>80</value>		<!-- duplicate value -->
+			</array>
+		</property>
+
+		<property name="impDate">
+			<array>
+				<ref bean="joinDate" />
+				<ref bean="dobDate" />
+				<ref bean="dobDate" />		<!-- duplicate value -->
+			</array>
+		</property>
+
+	</bean>
+
+
+	<!-- List Collection Vlaues Bean#4 -->
+
+	<bean id="list" class="com.vj.beans.ListCollectionValues">
+		<property name="marks">
+			<list>
+				<value>45</value>
+				<value>55</value>
+				<value>65</value>
+				<value>75</value>
+				<value>75</value>		<!-- duplicate value -->
+			</list>
+		</property>
+
+		<property name="dates">
+			<list>
+				<ref bean="joinDate" />
+				<ref bean="dobDate" />
+				<ref bean="joinDate" />		<!-- duplicate value -->
+			</list>
+		</property>
+
+	</bean>
+
+	<!-- Set Collection Values -->
+	<bean id="set" class="com.vj.beans.SetCollectionValues">
+		<property name="aadharNum">
+			<set>
+				<value>111111111</value>
+				<value>222222222</value>
+				<value>111111111</value>		<!-- duplicate value -->
+				<value>333333333</value>
+			</set>
+		</property>
+
+		<property name="doBirth">
+			<set>
+				<ref bean="dobDate" />
+				<ref bean="joinDate" />
+				<ref bean="dobDate" />		<!-- duplicate value -->
+			</set>
+		</property>
+
+	</bean>
+
+	<!-- Map Collection values bean#5 -->
+	<bean id="map" class="com.vj.beans.MapCollectionValues">
+
+		<property name="contacts">
+
+			<map>
+				<entry key="Vijay" value="7777777" />
+
+				<!-- or -->
+
+				<entry>
+					<key>
+						<value>Raj</value>
+					</key>
+					<value>8888888</value>
+				</entry>
+
+				<!-- or -->
+
+				<entry key="ABCD">
+					<value>99999999</value>
+				</entry>
+
+				<!-- or -->
+
+				<entry value="33333333">
+					<key>
+						<value>David</value>
+					</key>
+				</entry>
+
+				<!-- or -->
+
+				<entry key="Vijay" value="9999999"></entry>			<!-- duplicate key -->
+
+			</map>
+
+		</property>
+
+		<property name="holidayDate">
+			<map>
+				<entry key="Holiday-1" value-ref="dobDate"></entry>
+
+				<!-- or -->
+
+				<entry>
+					<key>
+						<value>Holiday-2</value>
+					</key>
+					<ref bean="dobDate" />
+				</entry>
+
+				<!-- or -->
+
+				<entry value-ref="joinDate">
+					<key>
+						<value>Holiday-2</value>				<!-- duplicate Key -->
+					</key>
+				</entry>
+			</map>
+
+		</property>
+	</bean>
+
+	<!-- properties bean#5 -->
+
+	<bean id="props" class="com.vj.beans.PropertiesValues">
+		<property name="hotel">
+			<props>
+				<prop key="Sec">Paradise</prop>
+				<prop key="Hyd">Trident</prop>
+			</props>
+		</property>
+		<property name="menu">
+			<list>
+				<props>
+					<prop key="1">Starters</prop>
+					<prop key="2">Soups</prop>
+					<prop key="3">Vegan</prop>
+					<prop key="3">West</prop>		<!-- duplicates -->
+					<prop key="4">South</prop>
+				</props>
+			</list>
+
+		</property>
+
+	</bean>
+
+
+
+</beans>

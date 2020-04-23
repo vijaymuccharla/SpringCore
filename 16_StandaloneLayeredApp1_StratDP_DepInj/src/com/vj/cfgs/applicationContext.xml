@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+
+	<bean id="dmds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>	
+	<property name="url" value="jdbc:mysql://localhost:3306/hibtest"/>
+	<property name="username" value="root"/>
+	<property name="password" value="root"/>
+	</bean>
+	
+	<bean id="stDAO" class="com.vj.dao.StudentDAOImpli">
+	<constructor-arg ref="dmds"/>
+	</bean>
+	
+	<bean id="stService" class="com.vj.service.StudentOperationServiceImpli">
+	<constructor-arg ref="stDAO"/>
+	</bean>
+	
+	<bean id="controller" class="com.vj.controller.MainController">
+	<constructor-arg ref="stService"/>
+	</bean>
+
+</beans>
