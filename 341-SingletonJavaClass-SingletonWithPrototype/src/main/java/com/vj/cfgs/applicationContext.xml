@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- default -->
+	<!-- <bean id="print" class="com.vj.singletons.Printer" scope="singleton"/> -->
+
+	<!-- prototype overrides singleton behaviour and allows IOC to 
+	   create multiple objects using Reflection API -->
+<!-- 	<bean id="print" class="com.vj.singletons.Printer" scope="prototype" /> -->
+	
+	<!-- solution : use factory-method Instantiation -->
+	<bean id="print" class="com.vj.singletons.Printer" scope="prototype" factory-method="getInstance"/>
+	
+</beans>
