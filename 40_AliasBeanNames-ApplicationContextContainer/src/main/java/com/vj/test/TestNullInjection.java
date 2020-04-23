@@ -2,15 +2,13 @@ package com.vj.test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 import com.vj.bean.Details;
 
-public class ApllicationContextContainerTest {
+public class TestNullInjection {
 
 	public static void main(String[] args) {
-		
-		ApplicationContext ctxt=null;
+	ApplicationContext ctxt=null;
 		
 //		create IOC of type "AC"
 		

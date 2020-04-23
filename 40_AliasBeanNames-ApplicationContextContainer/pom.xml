@@ -8,6 +8,8 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
+	<name>21_Null_Injection</name>
+	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +21,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>5.2.5.RELEASE</version>
+			<version>5.2.4.RELEASE</version>
 		</dependency>
 
 
