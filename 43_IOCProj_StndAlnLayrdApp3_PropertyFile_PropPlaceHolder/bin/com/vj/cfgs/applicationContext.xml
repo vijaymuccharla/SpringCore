@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+<!-- 
+1.	PropertyPlacdeHolderConfigurer 
+		will automatically detect all the values of property file and keeps in Spring place holder
+ 		${<key>} Works only with ApplciationContext Container 
+ 1. Advantage :::: We can change PropertyFile values to change DB info without touching 
+ XML file when working with multiple Modules
+ *****check DATASOURCE.xml
+  -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<property name="location" value="com/vj/commons/jdbc.properties"></property>
+	
+	
+	</bean>
+	<import resource="datasource.xml"/>
+	<import resource="daos.xml"/>
+	<import resource="services.xml"/>
+	<import resource="controllers.xml"/>
+
+</beans>
