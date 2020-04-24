@@ -30,6 +30,7 @@ public class ACpreinstantiationTest {
 //		all singletons are pre initialized by AC container automatically.
 		//by default all beans are singletons, to change we use scope attribute in Bean tag with Prototype
 		/*		**********
+		 _______ Important Question______
 		Q) We have 10 beans, and we need to enable Eager Instantiation for only 5 beans. How?
 		1. Use only Application container
 		2. for 5 beans make scope as Singleton, other 5 as Prototype
